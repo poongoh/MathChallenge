@@ -445,35 +445,35 @@ setInterval(() => {
 }, 100);
 
 
-const cheatMsg = `<div style="display: flex; justify-content: center; flex-direction: column; gap: 10px;height: 100vh; font-family: sans-serif; text-align: center;"><p>An unexpected error occurred, and this session has been ended for security reasons.</p><h3>Thank you for your understanding</h3></div>`
+// const cheatMsg = `<div style="display: flex; justify-content: center; flex-direction: column; gap: 10px;height: 100vh; font-family: sans-serif; text-align: center;"><p>An unexpected error occurred, and this session has been ended for security reasons.</p><h3>Thank you for your understanding</h3></div>`
 
-// Reload or Back
-window.addEventListener('beforeunload', (event) => {
-    event.preventDefault();
-    // event.returnValue = '';
-});
+// // Reload or Back
+// window.addEventListener('beforeunload', (event) => {
+//     event.preventDefault();
+//     // event.returnValue = '';
+// });
 
-// Detect when the user returns to the page
-window.addEventListener('focus', () => {
-    cheating()
-});
+// // Detect when the user returns to the page
+// window.addEventListener('focus', () => {
+//     cheating()
+// });
 
-const cheat = document.getElementById('cheatMsg');
+// const cheat = document.getElementById('cheatMsg');
 
-function cheating() {
-    document.getElementById('cheat').style.display = 'flex';
-    let count = 0;
-    const timer = setInterval(() => {
+// function cheating() {
+//     document.getElementById('cheat').style.display = 'flex';
+//     let count = 0;
+//     const timer = setInterval(() => {
 
-        const r1 = Math.floor(Math.random() * 1000);
-        cheat.innerHTML += bank[r1].qns.join('\t')
-        count++;
-        if (count >= 200) {
-            clearInterval(timer);
-            document.body.innerHTML = cheatMsg;
-        }
-    }, 20);
-}
+//         const r1 = Math.floor(Math.random() * 1000);
+//         cheat.innerHTML += bank[r1].qns.join('\t')
+//         count++;
+//         if (count >= 200) {
+//             clearInterval(timer);
+//             document.body.innerHTML = cheatMsg;
+//         }
+//     }, 20);
+// }
 
 // --------------------------------------------------------------- //
 // RECORD lastPlay
