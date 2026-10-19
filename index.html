@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Challenge</title>
+  <link rel="stylesheet" href="assets/css/math.css">
+</head>
+
+<body>
+
+  <div id="reminder">
+    <h2>Important Reminder</h2>
+    <div>
+      <hr>
+      <p>
+        In this study, <i>Problem Solving under Time Constraints</i>, you will be asked to solve a total of 30
+        arithmetic questions, each with four options.
+      </p>
+      <p style="color: #cc0000;">
+        Please note that you must answer <b>all 30 questions within 10 minutes</b> to be compensated
+        with <b>£1.00</b>. Otherwise, your task will be considered <b>incomplete</b> and you will <b>NOT</b> be
+        compensated.
+      </p>
+      <p>
+        The remaining time will be displayed at the top of the page. If you are running out of time, you may guess
+        the answers. There is <b>no penalty</b> for wrong answers. Instead, you will receive a bonus of <b>£0.05</b> for
+        each correct answer, allowing you to earn a maximum of <b>£2.50</b> from this task.
+      </p>
+    </div>
+    <hr>
+
+    <div id="warn">
+      <p>
+        During the session, please <b style="color: #cc0000;">AVOID</b> the following actions:
+      </p>
+      <ul>
+        <li>Going back to the previous page</li>
+        <li>Refreshing the current page</li>
+        <li>Switching between different tabs or windows</li>
+        <li>Opening <coe>DevTools</coe> or any developer-related tools</li>
+      </ul>
+      <br>
+      Engaging in these actions may cause <b>errors</b> and result in <b>premature termination</b> of the session.
+    </div>
+
+    <div id="agree">
+      <hr>
+      <p>Please select one option.</p>
+      <input type="radio" id="A" name="qns" value='YES' />
+      <label for="A" class="intend">I have read and understood the <b>completion conditions</b>, and I would like to
+        participate in the study.
+      </label>
+      <input type="radio" id="B" name="qns" value='NO' />
+      <label for="B" class="intend">I <b>DO NOT</b> wish to participate in the study.</label><br>
+    </div>
+    <div style="text-align:right;">
+      <button id="mainBtn" style="background-color: white !important; color: gray !important;" disabled>
+        CLICK
+      </button>
+    </div>
+    <hr>
+
+    <script>
+      const mainBtn = document.getElementById('mainBtn');
+
+      document.getElementById('A').onchange = function () {
+        if (this.checked) {
+          mainBtn.innerHTML = '&#x25B6;&#xFE0F; ENTER';
+          mainBtn.disabled = false;
+          mainBtn.style.backgroundColor = '#e3f2fd';
+          mainBtn.style.setProperty('color', '#1565c0', 'important');
+          mainBtn.style.setProperty('outline', '1px solid #1565c0', 'important');
+        }
+      }
+
+      document.getElementById('B').onchange = function () {
+        if (this.checked) {
+          mainBtn.innerHTML = '&#x274C; EXIT';
+          mainBtn.disabled = false;
+          mainBtn.style.backgroundColor = '#ffcdd2';
+          mainBtn.style.setProperty('color', '#c62828', 'important');
+          mainBtn.style.setProperty('outline', '1px solid #c62828', 'important');
+        }
+      }
+
+      mainBtn.addEventListener('click', function () {
+        const pick = document.querySelector('input[name="qns"]:checked').value;
+        document.querySelectorAll('input[name="qns"]').forEach((el) => {
+          el.checked = false;
+        });
+        if (pick == 'YES') {
+          window.location.href = "quiz.html";
+        } else {
+          document.body.innerHTML = `<div style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif; text-align: center;"><h3>Thank you for your participation</h3></div>`
+        }
+
+      });
+
+
+      // const pick = document.querySelector('input[name="qns"]:checked').value;
+
+
+      // document.getElementById('agree').onchange = () => { mainBtn.disabled = false; };
+      // function goToNextPage() {
+      //   document.querySelectorAll('input[name="qns"]').forEach((el) => {
+      //     el.checked = false;
+      //   }); // unchecked
+      //   window.location.href = "quiz.html";
+      // }
+    </script>
+</body>
+
+</html>

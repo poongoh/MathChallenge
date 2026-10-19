@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Challenge</title>
+  <link rel="stylesheet" href="assets/css/math.css">
+</head>
+
+<body>
+  <!-- HEAD -->
+  <div id="how_to">
+    <h2>HOW TO PLAY</h2>
+    <hr>
+    <ol>
+      <li>
+        Select one that yields the <b>LARGEST</b> value among the four
+        arithmetic expressions below.
+      </li>
+      <li>
+        Click <b style="color:#3498db;">SUBMIT</b> to check your answer.
+      </li>
+      <li>
+        Click <b style="color:#2ca02c;">NEXT</b> to move on to the next question.
+      </li>
+    </ol>
+    <p>[<b><span id="round_sample">0</span>/3</b>] Try some sample questions below.</p>
+    <hr>
+  </div>
+
+  <div id="board" style="display: none;">
+    <h2>&#9203;&nbsp;<span id="clock">10:00</span></h2>
+    <hr>
+    <div class="score_board">
+      <span>Solved: <b><span id="round_main">0</span></b>/<b>30</b></span>
+      <span>|</span>
+      <span>Correct: <b><span style="color:#3498db;" id="gain">0</span></b></span>
+      <span>|</span>
+      <span>Wrong: <b><span style="color:#cc0000;" id="lose">0</span></b></span>
+    </div>
+    <hr>
+  </div>
+
+  <!-- MAIN -->
+  <div>
+    <div>
+      <output id="read">&nbsp;</output>
+    </div>
+    <div id="quiz">
+      <input type="radio" id="A" name="qns" value='A' />
+      <label for="A" class="math">&nbsp;</label>
+      <input type="radio" id="B" name="qns" value='B' />
+      <label for="B" class="math">&nbsp;</label>
+      <input type="radio" id="C" name="qns" value='C' />
+      <label for="C" class="math">&nbsp;</label>
+      <input type="radio" id="D" name="qns" value='D' />
+      <label for="D" class="math">&nbsp;</label>
+    </div>
+    <hr>
+  </div>
+
+  <!-- FOOT -->
+  <div id="foot">
+    <button id="mainBtn" value="submit" disabled>SUBMIT</button>
+  </div>
+  <div id="note">
+    <p id="note_sample">
+      <i>NOTE</i>. These are sample questions for practice and will <b>NOT</b> count toward your final score.
+    </p>
+    <p id="note_main" style="display: none">
+      <i>NOTE</i>. Please complete all questions within 10 minutes to receive compensation; otherwise, the task will be
+      marked as incomplete.
+    </p>
+    <hr>
+  </div>
+
+  <!-- POP-UP -->
+  <div id="replay" class="modal" style="display: none;">
+    <div class="modal-content" id="replayMsg">
+      <code style="font-size: 12px; color: gray">Last Played: <span id="lastPlay"></span></code>
+      <p>You have already attempted this task. You can play again, but <b>no additional rewards</b> will be
+        given.
+      </p>
+      <h3 style="text-align: center;">Would you like to play anyway?</h3>
+      <div class="modal-btns">
+        <button id="exitBtn">&#x274C; EXIT</button>
+        <button id="replayBtn">&#x25B6;&#xFE0F; PLAY AGAIN</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="start" class="modal" style="display: none;">
+    <div class="modal-content" id="startMsg">
+      <p>You've completed all the sample questions.<br>Shall we start the <b>main game</b> now?</p>
+      <div class="modal-btns">
+        <button id="exitBtn">&#x274C; EXIT</button>
+        <button id="playBtn">&#x25B6;&#xFE0F; PLAY</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="cheat" class="modal" style="display: none;">
+    <div class="modal-content" id="startMsg">
+      <code id="cheatMsg"></code>
+      <!-- <span id="cheatMsg"></span> -->
+    </div>
+  </div>
+
+  <div id="end_sad" class="modal" style="display: none;">
+    <div class="modal-content" id="sadMsg">
+      <h2>TIME IS UP</h2>
+      <p>The session has ended before completion. As the task was not fully completed within the given time limit,
+        compensation will not be provided. Thank you for your participation.</p>
+      <div class="modal-btns">
+        <button id="sadBtn">&#x274C; EXIT</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="end_happy" class="modal" style="display: none;">
+    <div class="modal-content" id="happyMsg">
+      <h2>Congratulations!</h2>
+      <p>You've completed all the questions.</p>
+      <hr>
+      <div class="results">
+        Correct: <b><span style="color:#3498db;" id="gain_r">0</span></b>
+        &ensp;|&ensp;
+        Wrong: <b><span style="color:#cc0000;" id="lose_r">0</span></b>
+      </div>
+      <div style="text-align: center;">
+        <br><code id="wait" style="font-size: 12px;">Processing your results, please wait...</code>
+      </div>
+      <div class="modal-btns">
+        <button id="happyBtn" disabled>&#9989; CONFIRM</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="assets/js/math.js"></script>
+  <!-- <script type="module" src="assets/js/prevent.js"></script> -->
+</body>
+
+
+</html>
